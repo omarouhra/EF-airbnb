@@ -1,46 +1,66 @@
-# Getting Started with Create React App
+# Editframe React Player
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+This is react component to preview a video using [Editframe SDK](https://www.editframe.com/docs/sdks) video config JSON object.
 
-In the project directory, you can run:
 
-### `npm start`
+## Installation
+You can install the Editframe React Player using npm or yarn:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Npm
+```sh
+npm install @editframe/react
+```
+Yarn
+```sh
+yarn add @editframe/react
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To get started with the Editframe React, you will need to obtain an Application ID from the Editframe dashboard.
 
-### `npm run build`
+Once you have your Application ID, you can use the React Player
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```App.tsx
+import "./App.css";
+import { Player } from "@editframe/react";
+import { useState } from "react";
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+function App() {
+  const [playerState, setPlayerState] =  useState<"stopped" | "playing" | "paused">("playing"); // you can use this to control the player
+  const [seek, setSeek] = useState(0); // you can use this to seek the player
+  const config = {
+    backgroundColor: "#000000FF",
+    dimensions: {
+      height: 1080,
+      width: 1920,
+    },
+    duration: 10,
+    metadata: {},
+    layers: [],
+  }; // this is the config for the player to render the video 
+  return (
+    <div className="App">
+      <div style={{ height: "100vh", width: "100vw" }}>
+        <Player
+          config={config}
+          style={{
+            height: "100%",
+            width: "100%",
+          }}
+          applicationId="demo"
+          loop={false}
+          playerState={playerState}
+          seek={seek}
+        />
+      </div>
+    </div>
+  );
+}
+export default App;
+```
+You can check the full app in [React Player Demo App](https://github.com/editframe/react-player-demo-app)
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
