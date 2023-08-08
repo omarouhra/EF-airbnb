@@ -1,7 +1,9 @@
 # Editframe React Player
 
 
-This is react component to preview a video using [Editframe SDK](https://www.editframe.com/docs/sdks) video config JSON object.
+This is react player project demo app
+
+![Screenshot of the app](https://github.com/editframe/react-player-demo/blob/main/demo.png?raw=true)
 
 
 ## Installation
