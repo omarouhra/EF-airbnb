@@ -1,7 +1,7 @@
 # Editframe React Player
 
 
-This is react player project demo app
+This is a React player project demo app that use Editframe player to preview your Spotify like Instagram Story and edit it in realtime with track title and artist name 
 
 ![Screenshot of the app](https://github.com/editframe/react-player-demo-app/blob/main/demo.png?raw=true)
 
@@ -11,18 +11,25 @@ You can install the Editframe React Player using npm or yarn:
 
 Npm
 ```sh
-npm install @editframe/react
+npm install
 ```
 Yarn
 ```sh
-yarn add @editframe/react
+yarn install
 ```
 
 
 ## Getting Started
 
-To get started with the Editframe React, you will need to obtain an Application ID from the Editframe dashboard.
-
+To get started with this project, you will need to obtain an Application ID from the Editframe dashboard.
+Npm
+```sh
+npm start
+```
+Yarn
+```sh
+yarn start
+```
 Once you have your Application ID, you can use the React Player
 
 
