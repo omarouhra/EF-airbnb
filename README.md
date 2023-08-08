@@ -3,7 +3,7 @@
 
 This is react player project demo app
 
-![Screenshot of the app](https://github.com/editframe/react-player-demo/blob/main/demo.png?raw=true)
+![Screenshot of the app](https://github.com/editframe/react-player-demo-app/blob/main/demo.png?raw=true)
 
 
 ## Installation
