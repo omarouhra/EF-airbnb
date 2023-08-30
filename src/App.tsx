@@ -135,26 +135,11 @@ function App() {
   const [config, setConfig] = useState(defaultConfig);
   useEffect(() => {
     const newConfig = { ...config };
-    newConfig.layers = defaultConfig.layers.map((layer) => {
-      if (layer.html) {
-        layer.html.page.body = layer.html.page.body.replace(
-          "{{trackName}}",
-          trackTitle
-        );
-        layer.html.page.body = layer.html.page.body.replace(
-          "{{artistName}}",
-          artistName
-        );
-        return layer;
-      } else {
-        return layer;
-      }
-    });
     setConfig(newConfig);
     console.log(config);
 
     return () => {};
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [video]);
 
   return (
@@ -247,8 +232,6 @@ function App() {
                   config={config}
                   applicationId="demo"
                   loop={false}
-                  playerState={playerState}
-                  seek={seek}
                   host={"https://player.editframe.dev"}
                   style={{
                     width: "100%",
