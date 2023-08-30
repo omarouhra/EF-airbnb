@@ -1,9 +1,17 @@
-
 const Footer = () => {
   return (
-    <div className="text-center py-12 border-t">
+    <div className="text-center py-12 border-t border-gray-100">
       <p className="text-sm">
-        Built using <span className="font-semibold">EditFrame</span>
+        Built using{" "}
+        <a
+          href="https://www.editframe.com/"
+          target="_blank"
+          rel="noreferrer"
+          className="font-semibold"
+          title="EditFrame LP"
+        >
+          EditFrame
+        </a>
       </p>
     </div>
   );

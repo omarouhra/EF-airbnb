@@ -3,8 +3,8 @@ import React from "react";
 const AirbnbIcon = () => {
   return (
     <svg
-      width="116"
-      height="51"
+      width="136"
+      height="81"
       viewBox="0 0 96 31"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

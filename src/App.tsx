@@ -1,18 +1,18 @@
 import { Player } from "@editframe/react";
 import { useEffect, useState } from "react";
 import "./App.css";
-import AirbnbIcon from "./icons/AirbnbIcon";
-import HouseIcon from "./icons/HouseIcon";
-import ShopIcon from "./icons/ShopIcon";
-import EarthIcon from "./icons/EarthIcon";
 import Modal from "./components/Modal";
+import AirbnbIcon from "./icons/AirbnbIcon";
 import CloseIcon from "./icons/CloseIcon";
+import EarthIcon from "./icons/EarthIcon";
+import HouseIcon from "./icons/HouseIcon";
 import LaptopIcon from "./icons/LaptopIcon";
 import MobileIcon from "./icons/MobileIcon";
-import SettingIcon from "./icons/SettingIcon";
+import ShopIcon from "./icons/ShopIcon";
+import { CongratsAd } from "./templates/congratsAd copy";
 import { ListingAd } from "./templates/listingAd";
 import { SocialAd } from "./templates/socialAd";
-import { CongratsAd } from "./templates/congratsAd copy";
+import PlayIcon from "./icons/PlayIcon";
 
 function App() {
   // const [playerState, setPlayerState] = useState<
@@ -204,42 +204,39 @@ function App() {
           </div>
         </div>
       </Modal>
-      <div className="flex justify-end">
-        <button
-          onClick={() => setShowModal(!showModal)}
-          className="px-4 py-2 bg-red-50 hover:bg-red-100 rounded-md flex items-center space-x-2 text-[#FF5A5F] duration-150"
-        >
-          <p>Customize</p> <SettingIcon />
-        </button>
-      </div>
+      <div className="flex justify-end"></div>
 
       <div>
-        <div className="flex space-x-2 items-center justify-center my-4">
-          <AirbnbIcon />{" "}
-          <p className="text-2xl font-medium -translate-y-0.5">
-            ads videos generator
-          </p>
+        <div className="items-center justify-center flex flex-col my-4 mb-12">
+          <div className="flex space-x-2 items-center justify-center">
+            <AirbnbIcon />{" "}
+            <p className="text-3xl font-medium -translate-y-0.5">
+              ads videos generator
+            </p>
+          </div>
+          <button
+            onClick={() => setShowModal(!showModal)}
+            className="px-4 py-2 bg-red-50 hover:bg-red-100 rounded-md flex items-center space-x-2 text-[#FF5A5F] duration-150"
+          >
+            <p>Generate your video</p> <PlayIcon />
+          </button>
         </div>
-        <main className="my-12">
-          <div>
-            <div className="flex items-center justify-center">
-              <div
-                className={` ${
-                  videoResolution === "mobile" ? "w-[40%] h-[800px]" : "w-full"
-                }  rounded-lg overflow-hidden h-[800px] duration-300`}
-              >
-                <Player
-                  config={config}
-                  applicationId="demo"
-                  loop={false}
-                  host={"https://player.editframe.dev"}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                  }}
-                />
-              </div>
-            </div>
+        <main className="my-12 flex items-center justify-center border rounded-md bg-gray-50 border-gray-100 py-8 shadow-lg">
+          <div
+            className={` ${
+              videoResolution === "mobile" ? "w-[40%] h-[800px]" : "w-full"
+            }  rounded-lg overflow-hidden h-[800px] duration-300 shadow-2xl`}
+          >
+            <Player
+              config={config}
+              applicationId="demo"
+              loop={false}
+              host={"https://player.editframe.dev"}
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
+            />
           </div>
         </main>
       </div>
