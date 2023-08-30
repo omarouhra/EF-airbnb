@@ -25,6 +25,10 @@ function App() {
   const [videoType, setVideoType] = useState<string>("ad");
   const [videoResolution, setVideoResolution] = useState<string>("mobile");
   const [showModal, setShowModal] = useState(false);
+  const [sizeObj, setSizeObj] = useState({
+    width: 1080,
+    height: 1920,
+  });
 
   const VIDEO_VARIANTS = [
     {
@@ -65,7 +69,7 @@ function App() {
       ? SocialAd
       : CongratsAd;
 
-  const defaultConfig = {
+  const mobileConfig = {
     layers: [
       {
         id: 0,
@@ -95,8 +99,8 @@ function App() {
         },
         size: {
           scale: 1,
-          width: videoResolution === "mobile" ? 1080 : 2560,
-          height: videoResolution === "mobile" ? 1920 : 1440,
+          width: 1080,
+          height: 1920,
           format: "fill",
         },
         trim: {
@@ -125,22 +129,78 @@ function App() {
     },
     extension: "mp4",
     dimensions: {
-      width: videoResolution === "mobile" ? 1080 : 2560,
-      height: videoResolution === "mobile" ? 1920 : 1440,
+      width: 1080,
+      height: 1920,
     },
     backgroundColor: "#000000FF",
     shouldWatermark: true,
   };
-
-  const [config, setConfig] = useState(defaultConfig);
-  useEffect(() => {
-    const newConfig = { ...config };
-    setConfig(newConfig);
-    console.log(config);
-
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [video]);
+  const desktopConfig = {
+    layers: [
+      {
+        id: 0,
+        trim: {
+          start: 0,
+        },
+        type: "audio",
+        audio: {
+          volume: 1,
+        },
+        source: video.musicUrl,
+        timeline: {
+          start: 0,
+        },
+        transitions: [],
+      },
+      {
+        id: 1,
+        html: {
+          page: {
+            body: video.template,
+            styles: video.css,
+          },
+          selector: "#template",
+          withTailwind: true,
+          withTransparentBackground: false,
+        },
+        size: {
+          scale: 1,
+          width: 2560,
+          height: 1440,
+          format: "fill",
+        },
+        trim: {
+          start: 0,
+        },
+        type: "html",
+        position: {
+          x: 0,
+          y: 0,
+          z: 0,
+          angle: 0,
+          angleX: 0,
+          angleY: 0,
+          origin: "center",
+          isRelative: false,
+        },
+        timeline: {
+          start: 0,
+        },
+        transitions: [],
+      },
+    ],
+    duration: 12,
+    metadata: {
+      userId: 3,
+    },
+    extension: "mp4",
+    dimensions: {
+      width: 2560,
+      height: 1440,
+    },
+    backgroundColor: "#000000FF",
+    shouldWatermark: true,
+  };
 
   return (
     <div>
@@ -190,7 +250,12 @@ function App() {
                 </p>
                 <div className="flex items-center space-x-4 ">
                   {VIDEO_RESOLUTIONS.map(({ icon, label, key }, index) => (
-                    <button key={index} onClick={() => setVideoResolution(key)}>
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setVideoResolution(key);
+                      }}
+                    >
                       <div
                         className={`flex  items-center space-x-4 border p-4 rounded-md border-gray-200 hover:scale-[0.989] duration-150 dark:border-gray-700  ${
                           videoResolution === key &&
@@ -232,7 +297,9 @@ function App() {
             }  rounded-lg overflow-hidden h-[800px] duration-300 shadow-2xl`}
           >
             <Player
-              config={config}
+              config={
+                videoResolution === "mobile" ? mobileConfig : desktopConfig
+              }
               applicationId="demo"
               loop={false}
               host={"https://player.editframe.dev"}
