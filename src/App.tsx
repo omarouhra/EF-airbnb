@@ -145,7 +145,7 @@ function App() {
   return (
     <div>
       <Modal showModal={showModal} setShowModal={setShowModal}>
-        <div className="bg-white h-screen w-full p-4">
+        <div className="bg-white dark:bg-black/90 h-screen w-full p-4">
           <div>
             <button onClick={() => setShowModal(false)}>
               <CloseIcon />
@@ -154,23 +154,25 @@ function App() {
           <div className="mt-6">
             <div className=" border-gray-200 rounded-md  ">
               <form>
-                <div className="flex flex-col text-sm text-gray-500">
+                <div className="flex flex-col text-sm text-gray-500 dark:text-gray-300">
                   <label htmlFor="" className="mb-2">
                     Listing Url
                   </label>
                   <input
                     type="text"
-                    className="border-gray-200 bg-gray-50 rounded-md"
+                    className="border-gray-200 bg-gray-50 rounded-md dark:bg-black dark:border-gray-700 dark:text-white"
                   />
                 </div>
               </form>
               <div className="my-8">
-                <p className="text-sm text-gray-500 mb-2">Video Type</p>
+                <p className="text-sm text-gray-500 mb-2 dark:text-gray-300">
+                  Video Type
+                </p>
                 <div className="flex flex-col space-y-4">
                   {VIDEO_VARIANTS.map(({ icon, label, key }, index) => (
                     <button key={index} onClick={() => setVideoType(key)}>
                       <div
-                        className={`flex items-center space-x-4 border p-4 rounded-md border-gray-200 hover:scale-[0.989] duration-150 ${
+                        className={`flex items-center space-x-4 border p-4 rounded-md border-gray-200 hover:scale-[0.989] duration-150 dark:border-gray-700 ${
                           videoType === key &&
                           " bg-[#FF5A5F] hover:bg-[#FF5A5F] text-white"
                         }`}
@@ -183,12 +185,14 @@ function App() {
                 </div>
               </div>
               <div className="my-8">
-                <p className="text-sm text-gray-500 mb-2">Video Resolution</p>
+                <p className="text-sm text-gray-500 dark:text-gray-300 mb-2">
+                  Video Resolution
+                </p>
                 <div className="flex items-center space-x-4 ">
                   {VIDEO_RESOLUTIONS.map(({ icon, label, key }, index) => (
                     <button key={index} onClick={() => setVideoResolution(key)}>
                       <div
-                        className={`flex  items-center space-x-4 border p-4 rounded-md border-gray-200 hover:scale-[0.989] duration-150  ${
+                        className={`flex  items-center space-x-4 border p-4 rounded-md border-gray-200 hover:scale-[0.989] duration-150 dark:border-gray-700  ${
                           videoResolution === key &&
                           " bg-[#FF5A5F] hover:bg-[#FF5A5F] text-white"
                         }`}
@@ -221,7 +225,7 @@ function App() {
             <p>Generate your video</p> <PlayIcon />
           </button>
         </div>
-        <main className="my-12 flex items-center justify-center border rounded-md bg-gray-50 border-gray-100 py-8 shadow-lg">
+        <main className="my-12 flex items-center justify-center border rounded-md bg-gray-50 border-gray-100 dark:bg-transparent dark:border-transparent py-8 shadow-lg">
           <div
             className={` ${
               videoResolution === "mobile" ? "w-[40%] h-[800px]" : "w-full"
