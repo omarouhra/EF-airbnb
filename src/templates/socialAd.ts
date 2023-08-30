@@ -110,5 +110,5 @@ export const SocialAd = {
 
     `,
 
-  musicUrl: `https://firebasestorage.googleapis.com/v0/b/book-store-c5819.appspot.com/o/bg-2.mp3?alt=media&token=d250c084-4652-498d-8751-85766d57d143`,
+  musicUrl: `https://assets.mixkit.co/music/preview/mixkit-life-is-a-dream-837.mp3`,
 };

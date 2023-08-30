@@ -71,5 +71,5 @@ export const ListingAd = {
 
     `,
 
-  musicUrl: `https://firebasestorage.googleapis.com/v0/b/book-store-c5819.appspot.com/o/bg-1.mp3?alt=media&token=27fe9311-7ef7-4866-b19c-5efe8e32e7ff`,
+  musicUrl: `https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3`,
 };

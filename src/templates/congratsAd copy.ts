@@ -68,5 +68,5 @@ export const CongratsAd = {
 
     `,
 
-  musicUrl: `https://firebasestorage.googleapis.com/v0/b/book-store-c5819.appspot.com/o/bg-3.mp3?alt=media&token=d8fc29c0-5b52-4440-9f83-0b7539c13221`,
+  musicUrl: `https://assets.mixkit.co/music/preview/mixkit-raising-me-higher-34.mp3`,
 };
