@@ -154,6 +154,7 @@ function App() {
     console.log(config);
 
     return () => {};
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [video]);
 
   return (
