@@ -5,17 +5,20 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { ThemeProvider } from "next-themes";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <div className="max-w-7xl mx-auto px-5 py-8">
-      <Navbar />
-      <App />
-      <Footer />
-    </div>
+    <ThemeProvider defaultTheme="system" attribute="class">
+      <div className="max-w-7xl mx-auto px-5 py-8 duration-300">
+        <Navbar />
+        <App />
+        <Footer />
+      </div>
+    </ThemeProvider>
   </React.StrictMode>
 );
 
