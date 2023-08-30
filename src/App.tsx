@@ -15,12 +15,12 @@ import { SocialAd } from "./templates/socialAd";
 import { CongratsAd } from "./templates/congratsAd copy";
 
 function App() {
-  const [playerState, setPlayerState] = useState<
-    "stopped" | "playing" | "paused"
-  >("playing"); // you can use this to control the player
-  const [seek, setSeek] = useState(0); // you can use this to seek the player
-  const [trackTitle, setTrackTitle] = useState("Demo");
-  const [artistName, setArtistName] = useState("Editframe");
+  // const [playerState, setPlayerState] = useState<
+  //   "stopped" | "playing" | "paused"
+  // >("playing"); // you can use this to control the player
+  // const [seek, setSeek] = useState(0); // you can use this to seek the player
+  // const [trackTitle, setTrackTitle] = useState("Demo");
+  // const [artistName, setArtistName] = useState("Editframe");
 
   const [videoType, setVideoType] = useState<string>("ad");
   const [videoResolution, setVideoResolution] = useState<string>("mobile");
